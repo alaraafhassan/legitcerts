@@ -1,8 +1,6 @@
-# Core-dao-nfccertification
-# 📄 NFC-Based Blockchain Certificate System
-contract address- 0x5aef513f0be1e9e65f085cdc7e833c468265391f
 # 📄 NFC-Based Blockchain Certificate System
 
+contract address- 0x5aef513f0be1e9e65f085cdc7e833c468265391f
 A smart contract that issues, verifies, and revokes certificates based on unique NFC tags. Each certificate is stored immutably on the Ethereum blockchain with a reference to its detailed data on IPFS, ensuring authenticity, transparency, and security.
 
 ---
