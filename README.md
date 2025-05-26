@@ -91,6 +91,7 @@ function verifyCertificate(string memory certificateId) public view returns (str
 
 **Contract Address**: `0x73c9Dc75abea8554146023fb44b1C36584F93aC6`  
 **Network**: Core Blockchain Testnet2 (chain id : 1114(0x45a)) 
+**txn hash**: `0xe813525e54ca236dd0ecd787d4e0ab15ff3e1bf2f35d00b876c8d93c2ef2c021`
 **Deployment Date**: `2025-05-26`
 
 ---
