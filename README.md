@@ -1,81 +1,104 @@
-# 📄 NFC-Based Blockchain Certificate System
+# 🎓 LegitCerts — NFC-Based Blockchain Certificate System
 
-contract address- 0x5aef513f0be1e9e65f085cdc7e833c468265391f
+## Project Description
 
-A smart contract that issues, verifies, and revokes certificates based on unique NFC tags. Each certificate is stored immutably on the Ethereum blockchain with a reference to its detailed data on IPFS, ensuring authenticity, transparency, and security.
+**LegitCerts** is a decentralized application (dApp) built on Ethereum that issues, verifies, and revokes certificates using secure NFC tag IDs as unique identifiers. The system ensures authenticity, immutability, and transparency of academic or professional credentials by leveraging blockchain and IPFS (InterPlanetary File System).
 
----
+Each certificate is linked to a unique NFC chip and stored immutably on-chain, with full metadata (like student details and course info) stored off-chain on IPFS. This eliminates forgery, reduces administrative overhead, and builds trust among institutions, employers, and students.
 
-## 🚀 Features
-
-- 🔐 **Admin-controlled issuance and revocation**
-- 📦 **Immutable certificate storage on blockchain**
-- 🔎 **Public verification using NFC-based Certificate ID**
-- 🧾 **IPFS integration for off-chain certificate data**
-- 🧠 **Smart structure for student and course details**
+The smart contract handles core certificate functionalities including issuance, verification, and revocation, while maintaining a verifiable on-chain history.
 
 ---
 
-## 🛠️ How It Works
+## Project Vision
 
-1. **Certificate Issuance (Admin Only):**
-   - Admin issues a certificate using a unique Certificate ID (stored in an NFC chip).
-   - Certificate data includes student name, course name, issue date, and IPFS hash.
-   - Data is stored on-chain and a log is emitted.
+Our vision is to revolutionize the way educational and professional certificates are issued and validated by combining NFC technology with blockchain. With LegitCerts, we aim to:
 
-2. **Verification (Public):**
-   - Anyone can verify a certificate by scanning the NFC tag and calling `verifyCertificate()`.
-   - The smart contract returns certificate metadata and its validity status.
+- 🛡️ Prevent certificate forgery and tampering with cryptographic verification  
+- 🔍 Allow real-time, NFC-enabled public verification of credentials  
+- 📂 Eliminate paperwork through secure digital certificates  
+- 🧾 Build a trusted and verifiable public history for issued certificates  
+- 🌍 Enable institutions to issue blockchain-secured credentials globally  
 
-3. **Revocation (Admin Only):**
-   - Admin can revoke any issued certificate.
-   - Revoked certificates will return `isValid = false`.
+We envision a future where anyone can validate a certificate by simply scanning an NFC tag, gaining instant access to its blockchain-verified record — no middlemen, no risk of fakes.
 
 ---
 
-## 📁 Smart Contract Overview
+## 🔑 Key Features
+
+### 1. Certificate Issuance  
+Admins can issue certificates using a unique NFC-based Certificate ID. Metadata like student name, course name, issue date, and an IPFS hash is recorded, and the certificate is permanently stored on-chain.
+
+### 2. Ownership Verification  
+Certificates are bound to a specific Certificate ID and cannot be manipulated or re-issued. Only the admin can issue or revoke certificates.
+
+### 3. Status Tracking  
+Certificates can have a validity status (`Valid`, `Revoked`). The status can be checked via public functions and updated only by the admin.
+
+### 4. Immutable History  
+Every certificate issuance and revocation is logged immutably, creating a secure and auditable certificate lifecycle.
+
+### 5. IPFS Integration  
+Certificate metadata is stored on IPFS for cost-effective, decentralized access while keeping sensitive data off-chain.
+
+---
+
+## 📦 Future Scope
+
+### Enhanced Integration  
+- Integration with educational platforms and LMS  
+- NFC scanning apps for real-time verification via Android/iOS  
+- API bridges to automate issuance with existing systems  
+
+### Advanced Features  
+- Verifiable credentials with DID (Decentralized Identity)  
+- Certificate NFTs for easy sharing on LinkedIn, GitHub, etc.  
+- On-chain token rewards for top performers or verified graduates  
+
+### Ecosystem Expansion  
+- Consortium support for universities and certifying bodies  
+- Zero-knowledge proofs for private metadata verification  
+- Cross-institutional credential recognition and analytics  
+
+### Technical Improvements  
+- Support for Layer 2 solutions (Optimism, zkSync)  
+- Upgradeable contracts using OpenZeppelin proxy patterns  
+- Role-based access control (RBAC) and admin multisig wallets  
+
+---
+
+## 🧪 How It Works
+
+1. **Admin issues a certificate** with a unique NFC-based ID.  
+2. **Metadata is pinned to IPFS** (student name, course, etc.).  
+3. **The contract stores the issuance on-chain**, referencing the IPFS hash.  
+4. **Anyone can verify** a certificate by scanning the NFC and querying the contract.  
+5. **Admin can revoke certificates** in case of errors or disciplinary action.  
+
+---
+
+## 📁 Smart Contract Functions
 
 ```solidity
-contract NFCCertification {
-    function issueCertificate(...) public onlyAdmin;
-    function revokeCertificate(string memory certificateId) public onlyAdmin;
-    function verifyCertificate(string memory certificateId) public view returns (...);
-}
+function issueCertificate(string memory certificateId, string memory studentName, string memory courseName, string memory issueDate, string memory ipfsHash) public onlyAdmin;
+function revokeCertificate(string memory certificateId) public onlyAdmin;
+function verifyCertificate(string memory certificateId) public view returns (string memory, string memory, string memory, string memory, bool);
 ```
 
 ---
 
-## 📦 Tech Stack
+## 📍 Contract Details
 
-- **Solidity 0.8.x**
-- **Ethereum / EVM-compatible chains**
-- **IPFS** for certificate storage
-- **NFC** for physical certificate ID embedding
-- Optional: Web3.js or Ethers.js frontend for interaction
+**Contract Address**: `0x73c9Dc75abea8554146023fb44b1C36584F93aC6`  
+**Network**: Core Blockchain Testnet2 (chain id : 1114(0x45a)) 
+**Deployment Date**: `2025-05-26`
 
 ---
 
-## 🧪 Testing Instructions
+## 📸 Screenshots
 
-1. Visit [Remix IDE](https://remix.ethereum.org)
-2. Create a new file: `NFCCertification.sol`
-3. Paste the smart contract code
-4. Compile using Solidity 0.8.x
-5. Deploy the contract using **JavaScript VM**
-6. Test functions:
-   - `issueCertificate()`
-   - `verifyCertificate()`
-   - `revokeCertificate()`
 
----
-
-## 🧠 Future Improvements
-
-- 🔄 Upgrade to ERC-721 NFT-based certificates
-- ⏳ Add expiration dates
-- 🏛️ Add institution details
-- 📱 Build NFC scanning React/Flutter app for verification
-- 🔐 Multi-admin or role-based access (using OpenZeppelin)
+![Deployment](assets/screenshots/deploy.jpg)  
 
 ---
 
@@ -83,3 +106,6 @@ contract NFCCertification {
 
 **Alaraaf Hassan**  
 
+---
+
+> _“Trust, once built on the blockchain, never needs to be questioned again.”_
