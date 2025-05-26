@@ -97,8 +97,9 @@ function verifyCertificate(string memory certificateId) public view returns (str
 
 ## 📸 Screenshots
 
+![image](https://github.com/user-attachments/assets/c2e6201c-d152-4bc3-b767-7b84a9ebd3a4)
+![image](https://github.com/user-attachments/assets/126c7c03-b945-4e59-8300-320d994e1a84)
 
-![Deployment](assets/screenshots/deploy1.jpg)  
 
 ---
 
