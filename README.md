@@ -82,6 +82,4 @@ contract NFCCertification {
 ## 👤 Author
 
 **Alaraaf Hassan**  
-Founder & CEO – Medora  
-Blockchain & AI Enthusiast
 
